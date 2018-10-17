@@ -18,8 +18,8 @@
 
 // Enter your name below!
 var NAME = [
- "Hello",
- "World"
+ "Laura",
+ "Moore"
 ];
 /* NOTE: Unfortunately the font used here only supports basic
   ASCII (eg, not char codes >128). For more userful international
@@ -36,12 +36,22 @@ var ctlogo = { // img/connect-tech.png
   buffer : E.toArrayBuffer(atob("B+AP/jAwAACPAD/6YYAFBQAAChIAABQoAAAoUAAAUKAAAKEgAAFBQAACgmGABQI8AAoDAxgUAfgwKAA="))
 };
 
+var rex =  [
+    // running
+     { width : 20, height : 22, bpp : 1, transparent:0, buffer : E.toArrayBuffer(atob("AB/gA/8AN/AD/wA/8AP/AD4AA/yAfAgfwMP/Dn/Q//wP/8B/+AP/gB/wAP4AB2AAYgAAIAADAP//")) },
+     { width : 20, height : 22, bpp : 1, transparent:0, buffer : E.toArrayBuffer(atob("AB/gA/8AN/AD/wA/8AP/AD4AA/yAfAgfwMP/Dn/Q//wP/8B/+AP/gB/wAP4AB2AAYwAEAABgAP//")) },
+     // dead
+     { width : 20, height : 22, bpp : 1, transparent:0, buffer : E.toArrayBuffer(atob("AB/gAj8AK/ACPwA/8AP/AD4AA/yAfAgfwMP/Dn/Q//wP/8B/+AP/gB/wAP4AB2AAYgAEIABjAP//")) }
+   ];
+
 // Draw the cityscape
 var n = 0;
 function draw() {
   n++;
   if (n>127) n=0;
   g.clear();
+  g.drawImage(rex[0], n,24);
+  g.drawImage(rex[1], n-128,24);  
   g.drawImage(cityscape, n,48);
   g.drawImage(cityscape, n-128,48);
   g.drawImage(ctlogo, 96,0);
