@@ -1,5 +1,4 @@
 /* HOW TO USE:
-
  * Enter your name below in 2 lines, where it says `NAME = `
  * If you have a battery in the Pixl, remove it
  * Add the battery while holding down Pixl's top left button
@@ -46,14 +45,18 @@ var rex =  [
 
 // Draw the cityscape
 var n = 0;
+var r = 0;
 function draw() {
   n++;
+  r = r?0:20;
   if (n>127) n=0;
   g.clear();
-  g.drawImage(rex[0], n,24);
-  g.drawImage(rex[1], n-128,24);  
+ 
   g.drawImage(cityscape, n,48);
-  g.drawImage(cityscape, n-128,48);
+  if(r) {
+    g.drawImage(cityscape, n-128,48);
+  }  
+  g.drawImage(rex[0], 5, 40 - r ); 
   g.drawImage(ctlogo, 96,0);
   g.setFont8x16();
   g.setFontAlign(0,0);
